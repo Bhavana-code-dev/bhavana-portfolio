@@ -13,7 +13,7 @@ function ResumeDownload({className,children}:{className:string,children:React.Re
     if(busy)return;
     setBusy(true);
     try {
-      const response=await fetch(`${import.meta.env.BASE_URL}Bhavana_N_S_Resume.pdf`,{cache:'no-store'});
+      const response=await fetch(`${'/'}Bhavana_N_S_Resume.pdf`,{cache:'no-store'});
       if(!response.ok)throw new Error(`Resume unavailable: ${response.status}`);
       const blob=await response.blob();
       if(!blob.size || !blob.type.includes('pdf'))throw new Error('Invalid PDF response');
